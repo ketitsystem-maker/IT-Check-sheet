@@ -16,7 +16,9 @@
       --text-color: #ffffff;
       --input-bg: #2c2c2c;
     }
+
     * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--bg-color);
@@ -24,81 +26,133 @@
       display: flex; align-items: center; justify-content: center;
       min-height: 100vh; color: var(--text-color);
     }
-    .container { width: 100%; padding: 15px; display: flex; justify-content: center; align-items: center; }
-    .card {
-      background: var(--card-bg); border-radius: 32px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.7);
-      padding: 45px 35px; width: 100%; max-width: 550px;
+
+    .container {
+      width: 100%; padding: 12px;
+      display: flex; justify-content: center; align-items: center;
     }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+      padding: 24px 20px;
+      width: 100%; max-width: 480px;
+    }
+
     @media (min-width: 768px) {
       .card { max-width: 900px; padding: 70px; }
-      h2 { font-size: 3.8rem; }
-      #result { font-size: 2.2rem; }
-      input[type="text"] { font-size: 2.4rem; }
-      .main-btn { font-size: 2rem; }
     }
-    h2 { text-align: center; margin: 0 0 40px 0; font-size: 2.6rem; font-weight: 900; letter-spacing: -1px; }
+
+    h2 {
+      text-align: center; margin: 0 0 24px 0;
+      font-size: clamp(1.4rem, 5vw, 3.8rem);
+      font-weight: 900; letter-spacing: -0.5px;
+    }
+
     #reader {
-      width: 100% !important; border-radius: 24px;
-      overflow: hidden; border: 5px solid #333 !important; background: #000;
+      width: 100% !important; border-radius: 16px;
+      overflow: hidden; border: 3px solid #333 !important; background: #000;
     }
+
     #reader button {
-      padding: 22px 40px !important; border-radius: 16px !important;
-      background-color: var(--primary-color) !important; color: white !important;
-      border: none !important; font-weight: 800 !important;
-      font-size: 1.6rem !important; margin: 15px 5px !important; cursor: pointer;
+      padding: clamp(12px, 3vw, 22px) clamp(20px, 5vw, 40px) !important;
+      border-radius: 12px !important;
+      background-color: var(--primary-color) !important;
+      color: white !important; border: none !important;
+      font-weight: 800 !important;
+      font-size: clamp(0.85rem, 3vw, 1.6rem) !important;
+      margin: 10px 5px !important; cursor: pointer;
     }
+
     #result {
-      text-align: center; margin: 35px 0; padding: 35px; border-radius: 24px;
-      font-size: 1.7rem; background: rgba(255,255,255,0.05);
-      border: 3px dashed #666; min-height: 140px;
+      text-align: center; margin: 20px 0; padding: 20px; border-radius: 16px;
+      font-size: clamp(0.9rem, 3.5vw, 1.7rem);
+      background: rgba(255,255,255,0.05); border: 2px dashed #666;
+      min-height: 100px;
       display: flex; align-items: center; justify-content: center;
-      flex-direction: column; line-height: 1.6;
+      flex-direction: column; line-height: 1.5;
     }
-    .success { background: rgba(46,204,113,0.2) !important; border: 3px solid var(--success-color) !important; color: var(--success-color); }
-    .error-state { background: rgba(231,76,60,0.15) !important; border: 3px solid var(--error-color) !important; }
-    .input-section { margin-top: 40px; }
-    label.field-label { display: block; margin-bottom: 20px; color: #ddd; font-size: 1.5rem; text-align: center; font-weight: 600; }
+
+    .success {
+      background: rgba(46,204,113,0.2) !important;
+      border: 2px solid var(--success-color) !important;
+      color: var(--success-color);
+    }
+
+    .error-state {
+      background: rgba(231,76,60,0.15) !important;
+      border: 2px solid var(--error-color) !important;
+    }
+
+    .input-section { margin-top: 20px; }
+
+    label.field-label {
+      display: block; margin-bottom: 12px; color: #ddd;
+      font-size: clamp(0.85rem, 3vw, 1.5rem);
+      text-align: center; font-weight: 600;
+    }
+
     input[type="text"] {
-      width: 100%; padding: 28px; font-size: 2.1rem;
-      border: 4px solid #444; background: var(--input-bg);
-      color: white; border-radius: 20px; text-align: center;
+      width: 100%;
+      padding: clamp(14px, 3vw, 28px);
+      font-size: clamp(1rem, 4vw, 2.1rem);
+      border: 3px solid #444; background: var(--input-bg);
+      color: white; border-radius: 16px; text-align: center;
       outline: none; transition: all 0.3s; font-weight: 700;
     }
+
     .main-btn {
-      width: 100%; padding: 28px; font-size: 1.8rem; border: none;
-      border-radius: 20px; cursor: pointer; font-weight: 900; margin-top: 20px;
-      transition: all 0.2s ease; box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-      text-transform: uppercase; letter-spacing: 1.5px;
+      width: 100%;
+      padding: clamp(14px, 3vw, 28px);
+      font-size: clamp(0.85rem, 3.5vw, 1.8rem);
+      border: none; border-radius: 16px; cursor: pointer;
+      font-weight: 900; margin-top: 14px;
+      transition: all 0.2s ease; box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      text-transform: uppercase; letter-spacing: 1px;
       display: block; text-decoration: none; text-align: center;
     }
+
     .main-btn:active { transform: scale(0.94); }
+
     #manualSubmitBtn { background: var(--primary-color); color: white; }
-    #nextStepButton { background: var(--success-color); color: white; display: none; }
-    #restartButton { background: #555; color: white; }
-    .history-btn { background: var(--history-color); color: white; margin-top: 15px; border: 1px solid #777; }
+    #nextStepButton  { background: var(--success-color); color: white; display: none; }
+    #restartButton   { background: #555; color: white; }
+    .history-btn     { background: var(--history-color); color: white; margin-top: 12px; border: 1px solid #777; }
     .history-btn-highlight { background: #34495e; border: 2px solid var(--primary-color); }
+
     .loading-dots:after { content: ' .'; animation: dots 1.5s steps(5,end) infinite; }
     @keyframes dots { 0%,20%{content:' .'} 40%{content:' ..'} 60%{content:' ...'} }
+
+    .blank-form-link {
+      color: #3498db; text-decoration: underline;
+      font-size: clamp(0.8rem, 3vw, 1.6rem);
+      display: block; margin-top: 16px; text-align: center;
+    }
   </style>
 </head>
 <body>
 <div class="container">
   <div class="card">
-    <h2>IT Self-Check Sheet</h2>
+    <h2>KET IT Self-Check Sheet</h2>
+
     <div id="reader"></div>
-    <div id="result">--- พร้อมสำหรับการตรวจสอบ ---</div>
+
+    <div id="result">--- Ready to check ---</div>
+
     <div id="inputSection" class="input-section">
       <label class="field-label">ไม่มี QR Code? กรอกชื่อหรือ Asset ที่นี่</label>
-      <input type="text" id="manualAssetInput" placeholder="ตัวอย่าง: KETCOM0000 หรือ 5-26-01-02-345" autocomplete="off">
+      <input type="text" id="manualAssetInput"
+             placeholder="ตัวอย่าง: KETCOM0000 หรือ 5-26-01-02-345"
+             autocomplete="off">
       <button id="manualSubmitBtn" class="main-btn">ค้นหาข้อมูล</button>
       <a href="https://drive.google.com/drive/folders/1SaZHN-7SbjwGCWkv4Eb0gTMB-ZrKklau?usp=sharing"
          target="_blank" class="main-btn history-btn">ตรวจสอบประวัติ</a>
-      <a href="https://forms.gle/9pJFZP4BbB7ipsY26" target="_blank"
-         style="color:#3498db;text-decoration:underline;font-size:1.6rem;display:block;margin-top:20px;text-align:center;">
+      <a href="https://forms.gle/9pJFZP4BbB7ipsY26" target="_blank" class="blank-form-link">
         หรือคลิกที่นี่เพื่อกรอกฟอร์มเปล่า
       </a>
     </div>
+
     <div id="nextButtonContainer" style="display:none;">
       <div id="errorActions" style="display:none;"></div>
       <button id="nextStepButton" class="main-btn">ดำเนินการต่อ (เข้าสู่แบบฟอร์ม)</button>
@@ -111,7 +165,7 @@
   // ============================================================
   // ⚙️ ตั้งค่า URL ของ GAS Web App ที่ Deploy ไว้
   // ============================================================
-  const GAS_URL = "https://script.google.com/macros/s/AKfycbwGTiOt3gas2B2ANBzWCs7UDGmSuzIk3miM4QlrspRUAX1Z6QMpsFUISynY3W-jCD_6/exec";
+  const GAS_URL = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";
   const HISTORY_URL = "https://drive.google.com/drive/folders/1SaZHN-7SbjwGCWkv4Eb0gTMB-ZrKklau?usp=sharing";
   const FORM_BLANK_URL = "https://forms.gle/9pJFZP4BbB7ipsY26";
 
@@ -124,7 +178,13 @@
     const qrSize = width > 600 ? 500 : Math.floor(width * 0.9);
     html5QrcodeScanner = new Html5QrcodeScanner(
       "reader",
-      { fps: 25, qrbox: { width: qrSize, height: qrSize }, aspectRatio: 1.0, rememberLastUsedCamera: true },
+      {
+        fps: 25,
+        qrbox: { width: qrSize, height: qrSize },
+        aspectRatio: 1.0,
+        showTorchButtonIfSupported: false,
+        rememberLastUsedCamera: true
+      },
       false
     );
     html5QrcodeScanner.render(onScanSuccess);
@@ -149,11 +209,11 @@
       html5QrcodeScanner.clear().catch(e => console.error(e));
     }
 
-    const resultElement = document.getElementById('result');
-    const inputSection = document.getElementById('inputSection');
-    const nextContainer = document.getElementById('nextButtonContainer');
-    const nextBtn = document.getElementById('nextStepButton');
-    const errorActions = document.getElementById('errorActions');
+    const resultElement   = document.getElementById('result');
+    const inputSection    = document.getElementById('inputSection');
+    const nextContainer   = document.getElementById('nextButtonContainer');
+    const nextBtn         = document.getElementById('nextStepButton');
+    const errorActions    = document.getElementById('errorActions');
 
     errorActions.style.display = 'none';
     nextBtn.disabled = false;
@@ -161,8 +221,8 @@
     nextBtn.style.display = "block";
 
     resultElement.innerHTML = `
-      <div style="font-size:1.7rem;">✅ พบรหัสอุปกรณ์</div>
-      <div style="font-size:3.2rem;font-weight:900;color:var(--success-color);margin-top:12px;letter-spacing:1px;">${scanKey}</div>`;
+      <div style="font-size:clamp(0.9rem,3.5vw,1.7rem);">✅ พบรหัสอุปกรณ์</div>
+      <div style="font-size:clamp(1.4rem,6vw,3.2rem);font-weight:900;color:var(--success-color);margin-top:10px;letter-spacing:1px;">${scanKey}</div>`;
     resultElement.className = 'success';
 
     inputSection.style.display = 'none';
@@ -171,7 +231,7 @@
 
   // ===== เรียก GAS API ด้วย fetch() แทน google.script.run =====
   function handleNextStep() {
-    const nextBtn = document.getElementById('nextStepButton');
+    const nextBtn       = document.getElementById('nextStepButton');
     const resultElement = document.getElementById('result');
 
     nextBtn.disabled = true;
@@ -179,8 +239,7 @@
 
     fetch(GAS_URL, {
       method: "POST",
-      // GAS ต้องการ text/plain เพื่อหลีกเลี่ยง CORS preflight
-      headers: { "Content-Type": "text/plain" },
+      headers: { "Content-Type": "text/plain" }, // text/plain หลีกเลี่ยง CORS preflight
       body: JSON.stringify({ action: "lookup", scanKey: currentScanKey })
     })
     .then(res => res.json())
@@ -188,7 +247,7 @@
       if (data.success) {
         resultElement.innerHTML = "🎉 พบข้อมูล! กำลังเปิดหน้าแบบฟอร์ม...";
         window.open(data.prefilledUrl, '_blank');
-        resultElement.innerHTML = `<div style="color:var(--success-color);font-weight:bold;font-size:2rem;">เปิดหน้าฟอร์มเรียบร้อย!</div>`;
+        resultElement.innerHTML = `<div style="color:var(--success-color);font-weight:bold;font-size:clamp(1rem,4vw,2rem);">เปิดหน้าฟอร์มเรียบร้อย!</div>`;
         nextBtn.style.display = 'none';
       } else {
         onLookupFailure(data);
@@ -201,18 +260,18 @@
 
   function onLookupFailure(data) {
     const resultElement = document.getElementById('result');
-    const nextBtn = document.getElementById('nextStepButton');
-    const errorActions = document.getElementById('errorActions');
+    const nextBtn       = document.getElementById('nextStepButton');
+    const errorActions  = document.getElementById('errorActions');
 
     resultElement.className = 'error-state';
-    resultElement.innerHTML = `<div style="color:var(--error-color);font-weight:bold;margin-bottom:15px;font-size:1.7rem;">⚠️ ${data.error}</div>`;
+    resultElement.innerHTML = `<div style="color:var(--error-color);font-weight:bold;margin-bottom:12px;font-size:clamp(0.85rem,3.5vw,1.7rem);">⚠️ ${data.error}</div>`;
 
     if (data.isDuplicate) {
-      errorActions.innerHTML = `<a href="${HISTORY_URL}" target="_blank" class="main-btn history-btn history-btn-highlight">ตรวจสอบประวัติ</a>`;
+      errorActions.innerHTML = `<a href="${HISTORY_URL}" target="_blank"
+        class="main-btn history-btn history-btn-highlight">ตรวจสอบประวัติ</a>`;
       errorActions.style.display = 'block';
     } else {
-      resultElement.innerHTML += `<a href="${FORM_BLANK_URL}" target="_blank"
-        style="color:#3498db;text-decoration:underline;font-size:1.6rem;display:block;margin-top:15px;">
+      resultElement.innerHTML += `<a href="${FORM_BLANK_URL}" target="_blank" class="blank-form-link">
         หรือคลิกที่นี่เพื่อกรอกฟอร์มเปล่า</a>`;
     }
     nextBtn.style.display = 'none';
@@ -221,13 +280,17 @@
   // ===== Init =====
   window.onload = function() {
     startScanner();
+
     document.getElementById('nextStepButton').onclick = handleNextStep;
+
     document.getElementById('restartButton').onclick = () => location.reload();
+
     document.getElementById('manualSubmitBtn').onclick = function() {
       const val = document.getElementById('manualAssetInput').value.trim();
       if (val) processInput(val);
     };
-    document.getElementById('manualAssetInput').addEventListener('keypress', (e) => {
+
+    document.getElementById('manualAssetInput').addEventListener('keypress', function(e) {
       if (e.key === 'Enter') document.getElementById('manualSubmitBtn').click();
     });
   };
